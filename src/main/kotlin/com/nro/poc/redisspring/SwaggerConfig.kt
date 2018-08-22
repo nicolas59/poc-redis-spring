@@ -28,7 +28,7 @@ internal class SwaggerConfig {
                 "API permettant de restituer des informations sur les clients.",
                 "1.0.0",
                 "Terms of service",
-                Contact("Ma Societe", "", ""),
+                Contact("Support", "", ""),
                 "License of API", "API license URL", Collections.emptyList())
 
 }
