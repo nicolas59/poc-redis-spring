@@ -1,0 +1,37 @@
+= API Rest Example
+
+
+[[_overview]]
+== Overview
+API permettant de restituer des informations sur les clients.
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0.0
+
+
+=== Contact information
+[%hardbreaks]
+__Contact__ : Ma Societe
+
+
+=== License information
+[%hardbreaks]
+__License__ : License of API
+__License URL__ : API license URL
+__Terms of service__ : Terms of service
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:8080
+__BasePath__ : /
+
+
+=== Tags
+
+* person-resource : Person Resource
+
+
+

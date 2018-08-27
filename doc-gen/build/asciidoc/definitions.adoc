@@ -1,0 +1,36 @@
+
+[[_definitions]]
+== Definitions
+
+[[_605fff256cf141cb844edf15ff9c872d]]
+=== Iterable«Person»
+__Type__ : object
+
+
+[[_c813fb93f098f0a075749fa53c58f4cf]]
+=== Optional«Person»
+
+[options="header", cols=".^3a,.^4a"]
+|===
+|Name|Schema
+|**present** +
+__optional__|boolean
+|===
+
+
+[[_person]]
+=== Person
+
+[options="header", cols=".^3a,.^4a"]
+|===
+|Name|Schema
+|**identifier** +
+__required__|string
+|**nom** +
+__required__|string
+|**prenom** +
+__required__|string
+|===
+
+
+

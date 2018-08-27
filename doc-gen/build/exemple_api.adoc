@@ -1,0 +1,324 @@
+= API Rest Example
+
+
+[[_overview]]
+== Vue générale
+API permettant de restituer des informations sur les clients.
+
+
+=== Information de version
+[%hardbreaks]
+__Version__ : 1.0.0
+
+
+=== Information de contact
+[%hardbreaks]
+__Contact__ : Support
+
+
+=== Information de licence
+[%hardbreaks]
+__Licence__ : License of API
+__Licence URL__ : API license URL
+__Conditions de service__ : Terms of service
+
+
+=== Schéma d'URI
+[%hardbreaks]
+__Serveur__ : localhost:8080
+__Chemin de base__ : /
+
+
+=== Tags
+
+* person-resource : API pour la gestion des personnes.
+
+
+
+
+[[_paths]]
+== Ressources
+
+[[_person-resource_resource]]
+=== Person-resource
+API pour la gestion des personnes.
+
+
+[[_createusingpost]]
+==== Permet d'enregistrer une nouvelle personne
+....
+POST /person
+....
+
+
+===== Description
+Enregistre la personne en base de données. Le resultat de la requete contient une entete Location indiquant l'url pour la récupération du nouveau client.
+
+
+===== Paramètres
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Nom|Description|Schéma
+|**Body**|**person** +
+__requis__|person|<<_person,Person>>
+|===
+
+
+===== Réponses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|Code HTTP|Description|Schéma
+|**200**|OK|Pas de contenu
+|**201**|Entité crée|Pas de contenu
+|**401**|Unauthorized|Pas de contenu
+|**403**|Forbidden|Pas de contenu
+|**404**|Not Found|Pas de contenu
+|**500**|Erreur interne serveur|Pas de contenu
+|===
+
+
+===== Consomme
+
+* `application/json`
+
+
+===== Produit
+
+* `application/json`
+
+
+===== Exemple de requête HTTP
+
+====== Requête path
+----
+/person
+----
+
+
+====== Requête body
+[source,json]
+----
+{
+  "identifier" : "string",
+  "civilite" : "string",
+  "nom" : "string",
+  "nomMarital" : "string",
+  "prenom" : "string",
+  "adresse" : {
+    "adresse1" : "string",
+    "adresse2" : "string",
+    "cp" : "string",
+    "pays" : "string",
+    "ville" : "string"
+  }
+}
+----
+
+
+[[_findallusingget]]
+==== Retourne l'ensemble des personnes
+....
+GET /person
+....
+
+
+===== Réponses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|Code HTTP|Description|Schéma
+|**200**|OK|< <<_person,Person>> > array
+|**401**|Unauthorized|Pas de contenu
+|**403**|Forbidden|Pas de contenu
+|**404**|Not Found|Pas de contenu
+|===
+
+
+===== Consomme
+
+* `application/json`
+
+
+===== Produit
+
+* `application/json`
+
+
+===== Exemple de requête HTTP
+
+====== Requête path
+----
+/person
+----
+
+
+===== Exemple de réponse HTTP
+
+====== Réponse 200
+[source,json]
+----
+[ {
+  "identifier" : "string",
+  "civilite" : "string",
+  "nom" : "string",
+  "nomMarital" : "string",
+  "prenom" : "string",
+  "adresse" : {
+    "adresse1" : "string",
+    "adresse2" : "string",
+    "cp" : "string",
+    "pays" : "string",
+    "ville" : "string"
+  }
+} ]
+----
+
+
+[[_findbyidusingget]]
+==== Permet de rechercher une personne en fonction de son identifiant
+....
+GET /person/{id}
+....
+
+
+===== Paramètres
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|Type|Nom|Description|Schéma
+|**Path**|**id** +
+__requis__|Identifiant fonctionnel de la personne recherchée|string
+|===
+
+
+===== Réponses
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|Code HTTP|Description|Schéma
+|**200**|OK|<<_person,Person>>
+|**401**|Unauthorized|Pas de contenu
+|**403**|Forbidden|Pas de contenu
+|**404**|Not Found|Pas de contenu
+|===
+
+
+===== Consomme
+
+* `application/json`
+
+
+===== Produit
+
+* `application/json`
+
+
+===== Exemple de requête HTTP
+
+====== Requête path
+----
+/person/string
+----
+
+
+===== Exemple de réponse HTTP
+
+====== Réponse 200
+[source,json]
+----
+{
+  "identifier" : "string",
+  "civilite" : "string",
+  "nom" : "string",
+  "nomMarital" : "string",
+  "prenom" : "string",
+  "adresse" : {
+    "adresse1" : "string",
+    "adresse2" : "string",
+    "cp" : "string",
+    "pays" : "string",
+    "ville" : "string"
+  }
+}
+----
+
+
+
+
+[[_definitions]]
+== Définitions
+
+[[_adresse]]
+=== Adresse
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Nom|Description|Schéma
+|**adresse1** +
+__requis__|Adresse (rue, avenue, boulevard) +
+**Exemple** : `"string"`|string
+|**adresse2** +
+__optionnel__|Information complementaire sur l'adresse +
+**Exemple** : `"string"`|string
+|**cp** +
+__requis__|Code Postal +
+**Exemple** : `"string"`|string
+|**pays** +
+__requis__|Pays +
+**Exemple** : `"string"`|string
+|**ville** +
+__requis__|Ville +
+**Exemple** : `"string"`|string
+|===
+
+
+[[_605fff256cf141cb844edf15ff9c872d]]
+=== Iterable«Person»
+__Type__ : object
+
+
+[[_c813fb93f098f0a075749fa53c58f4cf]]
+=== Optional«Person»
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Nom|Description|Schéma
+|**present** +
+__optionnel__|**Exemple** : `true`|boolean
+|===
+
+
+[[_person]]
+=== Person
+Entité représentant une personne physique
+
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|Nom|Description|Schéma
+|**adresse** +
+__optionnel__|Adresse de la personne +
+**Exemple** : <<_adresse>>|<<_adresse,Adresse>>
+|**civilite** +
+__optionnel__|Civilite +
+**Exemple** : `"string"`|string
+|**identifier** +
+__optionnel__|Identifiant +
+**Exemple** : `"string"`|string
+|**nom** +
+__requis__|Nom +
+**Exemple** : `"string"`|string
+|**nomMarital** +
+__optionnel__|Nom marital +
+**Exemple** : `"string"`|string
+|**prenom** +
+__requis__|Prenom +
+**Exemple** : `"string"`|string
+|===
+
+
+
+
+
